@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Computers - Demo Homepage</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; }
+        .hero { background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%); padding: 80px 20px; text-align: center; color: white; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.3rem; opacity: 0.95; max-width: 600px; margin: 0 auto 30px; }
+        .badge { background: #ffd700; color: #1a1a2e; padding: 10px 20px; border-radius: 25px; display: inline-block; font-weight: bold; margin: 10px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        .service-card { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { color: #e94560; margin-bottom: 15px; font-size: 1.5rem; }
+        .service-card p { color: #666; line-height: 1.6; }
+        .cta { background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%); padding: 60px 20px; text-align: center; color: white; margin-top: 50px; border-radius: 20px; }
+        .cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .cta button { background: #e94560; color: white; border: none; padding: 15px 40px; font-size: 1.2rem; border-radius: 30px; cursor: pointer; margin: 10px; transition: all 0.3s; }
+        .cta button:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4); }
+        .footer { text-align: center; padding: 30px; color: rgba(255,255,255,0.7); }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function App() {
+            const services = [
+                { title: 'Custom PC Builds', desc: 'From gaming rigs to workstations, we craft the perfect machine for your needs.' },
+                { title: 'Repairs & Upgrades', desc: 'Expert diagnostics and quality parts to bring your system back to life.' },
+                { title: 'Consulting', desc: 'Personalized advice on hardware, software, and everything in between.' },
+                { title: 'Business Solutions', desc: 'Scalable IT infrastructure for companies of all sizes.' }
+            ];
+
+            return (
+                <div>
+                    <div className="hero">
+                        <h1>🖥️ NEET Computers</h1>
+                        <p>Your trusted PC shop in Boulder, CO</p>
+                        <div className="badge">🏆 2023 Nextdoor Neighborhood Favorite</div>
+                        <p style={{marginTop: '20px'}}>Building dreams, one PC at a time</p>
+                    </div>
+
+                    <div className="container">
+                        <h2 style={{textAlign: 'center', color: 'white', fontSize: '2.5rem', marginBottom: '20px'}}>What We Do</h2>
+                        <div className="services">
+                            {services.map((s, i) => (
+                                <div className="service-card" key={i}>
+                                    <h3>{s.title}</h3>
+                                    <p>{s.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="cta">
+                            <h2>Ready to Upgrade Your Experience?</h2>
+                            <p style={{fontSize: '1.2rem', marginBottom: '30px'}}>Visit us or get in touch today!</p>
+                            <button onClick={() => window.location.href = 'https://neet.computer'}>Visit Our Site</button>
+                            <button onClick={() => alert('Contact coming soon!')}>Contact Us</button>
+                        </div>
+                    </div>
+
+                    <div className="footer">
+                        <p>© 2026 NEET Computers | Boulder, Colorado</p>
+                        <p style={{marginTop: '10px'}}>Built with 💗 by Yuno</p>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>
